@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+		<title> My First Leaflet Map </title>
+		<link rel="stylesheet" href="main.css"/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    </head>
+	<body>
+		<H1>Example</H1>
+		<div id="map"></div>
+		<p>Another Map:</p>
+		<div id="map2"></div>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
+		<script>
+			//initialize the map         
+			var map = L.map('map').setView([51.9741, 5.6688], 12);
+			var map2 = L.map('map2').setView([52.39074, 9.82043], 8);
+			// Hash in URL
+			var hash = new L.Hash(map);
+			
+			//Create baselayer - tiles         
+			var backgroundMap = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+				maxZoom: 20,
+				attribution: '&copy; Openstreetmap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+				
+			});
+			var backgroundMap2 = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			});
+  
+			backgroundMap.addTo(map);
+			backgroundMap2.addTo(map2);
+			var home = L.marker([52.04454, 5.64026]).addTo(map);
+			var home2 = L.marker([52.04454, 5.64026]).addTo(map2);
+			var Leeuwardenhome = L.marker([53.20663,5.78119]).addTo(map);
+			var Germanyhome = L.marker([52.39074, 9.82043]).addTo(map);
+			var MyJumbo = L.marker([52.04264, 5.64436]).addTo(map);
+			var MyAH = L.marker([52.02858, 5.64766]).addTo(map);
+			var Leeuwardenhome2 = L.marker([53.20663,5.78119]).addTo(map2);
+			var Germanyhome2 = L.marker([52.39074, 9.82043]).addTo(map2);
+			var MyJumbo2 = L.marker([52.04264, 5.64436]).addTo(map2);
+			var MyAH2 = L.marker([52.02858, 5.64766]).addTo(map2);
+		</script>
+	</body>
+</html>
